@@ -4,3 +4,9 @@ C:\Users\1\Documents\2 курс 3 семестр - Технология прог
 C:\Users\1\Documents\2 курс 3 семестр - Технология программирования\Лаб3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.csprojResolveAssemblyReference.cache
 C:\Users\1\Documents\2 курс 3 семестр - Технология программирования\Лаб3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.exe
 C:\Users\1\Documents\2 курс 3 семестр - Технология программирования\Лаб3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.pdb
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\bin\Debug\DAA.TP.lab3.exe.config
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\bin\Debug\DAA.TP.lab3.exe
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\bin\Debug\DAA.TP.lab3.pdb
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.csprojResolveAssemblyReference.cache
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.exe
+C:\Users\1\Documents\TP.lab3\DAA.TP.lab3\DAA.TP.lab3\obj\Debug\DAA.TP.lab3.pdb
