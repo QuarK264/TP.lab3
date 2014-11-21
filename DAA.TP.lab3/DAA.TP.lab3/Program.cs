@@ -27,6 +27,35 @@
                 }
             }
         }
+
+        private static double FuncBesselCicle1(int n, double x, double[] FuncBesselCicle)
+        {
+            FuncBesselCicle[0] = x;
+            FuncBesselCicle[1] = 2 * x;
+            for (int i = 2; i < n; i++)
+            {
+                FuncBesselCicle[i] = 2 * (i - 1) * FuncBesselCicle[i - 1] / x - FuncBesselCicle[i - 2];
+            }
+            return FuncBesselCicle[n - 1];
+        }
+
+        private static double FuncBesselCicle2(int n, double x, double[] FuncBesselCicle)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                FuncBesselCicle[i] = FuncBesselRecur(i, x);
+            }
+            return FuncBesselCicle[n - 1];
+        }
+
+        private static string FuncBesselDirect(double x, double[] FuncBesselCicle)
+        {
+            FuncBesselCicle[0] = x;
+            FuncBesselCicle[1] = 2.0 * x;
+            FuncBesselCicle[2] = 3.0 / x * FuncBesselCicle[1] - FuncBesselCicle[0];
+            return (6 / x * FuncBesselCicle[2] - FuncBesselCicle[1]).ToString();
+        }
+
         static void Main()
         {
             int n = 4;
@@ -36,21 +65,20 @@
             RecurMethod.Stop();
             Console.WriteLine(RecurMethod.Elapsed);
 
-            var CicleMethod = Stopwatch.StartNew();
-            double[] FuncBesselCicle = new double[n + 1];
-            //FuncBesselCicle[0] = x;
-            //FuncBesselCicle[1] = 2 * x;
-            //for (int i = 2; i < n; i++)
-            //{
-            //    FuncBesselCicle[i] = 2 * (i - 1) * FuncBesselCicle[i - 1] / x - FuncBesselCicle[i - 2];                
-            //}
-            for (int i = 0; i < n; i++)
-            {
-                FuncBesselCicle[i] = FuncBesselRecur(i, x);
-            }
-            Console.WriteLine(FuncBesselCicle[n - 1]);
-            CicleMethod.Stop();
-            Console.WriteLine(CicleMethod.Elapsed);
+            double[] FuncBesselCicle = new double[n];
+            var CicleMethod1 = Stopwatch.StartNew();
+            Console.WriteLine(FuncBesselCicle1(n, x, FuncBesselCicle));
+            CicleMethod1.Stop();
+            Console.WriteLine(CicleMethod1.Elapsed);
+                       
+            var CicleMethod2 = Stopwatch.StartNew();
+            Console.WriteLine(FuncBesselCicle2(n, x, FuncBesselCicle));
+            CicleMethod2.Stop();
+            Console.WriteLine(CicleMethod2.Elapsed);
+
+            var DirectMethod = Stopwatch.StartNew();
+            Console.WriteLine(FuncBesselDirect(x, FuncBesselCicle));
+            DirectMethod.Stop();
 
             Console.ReadLine();
         }
