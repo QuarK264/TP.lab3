@@ -28,8 +28,9 @@
             }
         }
 
-        private static double FuncBesselCicle1(int n, double x, double[] FuncBesselCicle)
+        private static double FuncBesselCicle(int n, double x)
         {
+            double[] FuncBesselCicle = new double[n];
             FuncBesselCicle[0] = x;
             FuncBesselCicle[1] = 2 * x;
             for (int i = 2; i < n; i++)
@@ -60,19 +61,19 @@
         static void Main()
         {
             int n = 9;
-            int nRecur = n - 1;
             double x = 4;
             var RecurMethod = Stopwatch.StartNew();
-            Console.WriteLine(FuncBesselRecur(nRecur, x));
+            Console.WriteLine(FuncBesselRecur(n - 1, x));
             RecurMethod.Stop();
             Console.WriteLine(RecurMethod.Elapsed);
 
-            double[] FuncBesselCicleMass = new double[n];
-            var CicleMethod1 = Stopwatch.StartNew();
-            Console.WriteLine(FuncBesselCicle1(n, x, FuncBesselCicleMass));
-            CicleMethod1.Stop();
-            Console.WriteLine(CicleMethod1.Elapsed);
 
+            var CicleMethod = Stopwatch.StartNew();
+            Console.WriteLine(FuncBesselCicle(n, x));
+            CicleMethod.Stop();
+            Console.WriteLine(CicleMethod.Elapsed);
+
+            #region Отладка
             //for (int i = 0; i < n; i++)
             //{
             //    FuncBesselCicleMass[i] = 0;
@@ -91,6 +92,7 @@
             //DirectMethod.Stop();
             //Console.WriteLine(DirectMethod.Elapsed);
 
+            #endregion
             Console.ReadLine();
         }
     }
