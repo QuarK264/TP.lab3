@@ -60,16 +60,16 @@
 
         static void Main()
         {
-            int n = 9;
+            int n = 8;
             double x = 4;
             var RecurMethod = Stopwatch.StartNew();
-            Console.WriteLine(FuncBesselRecur(n - 1, x));
+            Console.WriteLine(FuncBesselRecur(n, x));
             RecurMethod.Stop();
             Console.WriteLine(RecurMethod.Elapsed);
 
 
             var CicleMethod = Stopwatch.StartNew();
-            Console.WriteLine(FuncBesselCicle(n, x));
+            Console.WriteLine(FuncBesselCicle(n + 1, x));
             CicleMethod.Stop();
             Console.WriteLine(CicleMethod.Elapsed);
 
