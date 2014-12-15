@@ -9,6 +9,12 @@
 
     class Program
     {
+        /// <summary>
+        /// Рекурсивный расчёт значения функции
+        /// </summary>
+        /// <param name="n">Порядок функции</param>
+        /// <param name="x">Аргумент функции</param>
+        /// <returns>Значение функции энного порядка от аргумента x</returns>
         private static double FuncBesselRecur(int n, double x)
         {
             if (n == 0)
@@ -28,6 +34,12 @@
             }
         }
 
+        /// <summary>
+        /// Расчёт значения функции циклом
+        /// </summary>
+        /// <param name="n">Порядок функции</param>
+        /// <param name="x">Аргумент функции</param>
+        /// <returns>Значение функции энного порядка от аргумента x</returns>
         private static double FuncBesselCicle(int n, double x)
         {
             double[] FuncBesselCicle = new double[n];
@@ -40,24 +52,9 @@
             return FuncBesselCicle[n - 1];
         }
 
-        //ещё 1 вариант расчёта через цикл, для отладки
-        //private static double FuncBesselCicle2(int n, double x, double[] FuncBesselCicle)
-        //{
-        //    for (int i = 0; i < n; i++)
-        //    {
-        //        FuncBesselCicle[i] = FuncBesselRecur(i, x);
-        //    }
-        //    return FuncBesselCicle[n - 1];
-        //}
-
-        //это была отладка программы
-        //private static string FuncBesselDirect(double x, double[] FuncBesselCicle)
-        //{
-        //    FuncBesselCicle[0] = x;
-        //    FuncBesselCicle[1] = 2.0 * x;
-        //    return (2.0 / x * FuncBesselCicle[1] - FuncBesselCicle[0]).ToString();
-        //}
-
+        /// <summary>
+        /// Точка входа в программу, выводит время работы алгоритмов
+        /// </summary>
         static void Main()
         {
             int n = 8;
@@ -65,35 +62,14 @@
             var RecurMethod = Stopwatch.StartNew();
             Console.WriteLine(FuncBesselRecur(n, x));
             RecurMethod.Stop();
-            Console.WriteLine(RecurMethod.Elapsed);
-
+            Console.WriteLine(RecurMethod.ElapsedTicks);
 
             var CicleMethod = Stopwatch.StartNew();
             Console.WriteLine(FuncBesselCicle(n + 1, x));
             CicleMethod.Stop();
-            Console.WriteLine(CicleMethod.Elapsed);
+            Console.WriteLine(CicleMethod.ElapsedTicks);
 
-            #region Отладка
-            //for (int i = 0; i < n; i++)
-            //{
-            //    FuncBesselCicleMass[i] = 0;
-            //}        
-            //var CicleMethod2 = Stopwatch.StartNew();
-            //Console.WriteLine(FuncBesselCicle2(n, x, FuncBesselCicleMass));
-            //CicleMethod2.Stop();
-            //Console.WriteLine(CicleMethod2.Elapsed);
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    FuncBesselCicleMass[i] = 0;
-            //}    
-            //var DirectMethod = Stopwatch.StartNew();
-            //Console.WriteLine(FuncBesselDirect(x, FuncBesselCicleMass));
-            //DirectMethod.Stop();
-            //Console.WriteLine(DirectMethod.Elapsed);
-
-            #endregion
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
